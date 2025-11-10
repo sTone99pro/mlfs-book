@@ -34,34 +34,34 @@ def install(c):
 @task
 def aq_clean(c):
     check_venv()
-    c.run("uv run python mlfs/clean_hopsworks_resources.py aq")
+    c.run("python mlfs/clean_hopsworks_resources.py aq")
 
 @task
 def aq_backfill(c):
     check_venv()
-    c.run("uv run ipython notebooks/airquality/1_air_quality_feature_backfill.ipynb")
+    c.run("ipython notebooks/airquality/1_air_quality_feature_backfill.ipynb")
 
 @task
 def aq_features(c):
     check_venv()
-    c.run("uv run ipython notebooks/airquality/2_air_quality_feature_pipeline.ipynb")
+    c.run("ipython notebooks/airquality/2_air_quality_feature_pipeline.ipynb")
 
 @task
 def aq_train(c):
     check_venv()
-    c.run("uv run ipython notebooks/airquality/3_air_quality_training_pipeline.ipynb")
+    c.run("ipython notebooks/airquality/3_air_quality_training_pipeline.ipynb")
 
 @task
 def aq_inference(c):
     check_venv()
-    c.run("uv run ipython notebooks/airquality/2_air_quality_feature_pipeline.ipynb")
-    c.run("uv run ipython notebooks/airquality/4_air_quality_batch_inference.ipynb")
+    c.run("ipython notebooks/airquality/2_air_quality_feature_pipeline.ipynb")
+    c.run("ipython notebooks/airquality/4_air_quality_batch_inference.ipynb")
 
 
 @task
 def aq_llm(c):
     check_venv()
-    c.run("uv run ipython notebooks/airquality/5_function_calling.ipynb")
+    c.run("ipython notebooks/airquality/5_function_calling.ipynb")
 
 @task(pre=[aq_backfill, aq_features, aq_train, aq_inference])
 def aq_all(c):
@@ -73,7 +73,7 @@ def aq_all(c):
 def install_recommender(c):
     """Install LLM-related dependencies."""
     check_venv()
-    c.run("uv pip install -r requirements-llm.txt")
+    c.run("pip install -r requirements-llm.txt")
 
 
 ##########################################
