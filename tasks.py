@@ -73,7 +73,7 @@ def aq_all(c):
 def install_recommender(c):
     """Install LLM-related dependencies."""
     check_venv()
-    c.run("pip install -r requirements-llm.txt")
+    c.run("uv run pip install -r requirements-llm.txt")
 
 
 ##########################################
